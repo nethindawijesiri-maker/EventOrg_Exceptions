@@ -1,11 +1,12 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.time.LocalDate;
 
-public class Event {
+public abstract class Event {
 
     private int eventID;
     private String title;
-    private int date;
+    private LocalDate date;
     private String venue;
     private int capacity;
     private List<Student> registeredStudents;
@@ -41,6 +42,22 @@ public class Event {
 
     public void registerStudent(Student student){
 
+    }
+
+    public int calculateRegistrationFee(){
+        return 0;
+    }
+
+    public void displayEventDetails() {
+        System.out.println("Event ID: " + eventID);
+        System.out.println("Title: " + title);
+        System.out.println("Date: " + date);
+        System.out.println("Venue: " + venue);
+        System.out.println("Capacity: " + capacity);
+        System.out.println("Registered Students: "
+                + registeredStudents.size());
+        System.out.printf("Registration Fee: Rs. %.2f%n",
+                calculateRegistrationFee());
     }
 
 }
